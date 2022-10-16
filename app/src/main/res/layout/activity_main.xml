@@ -23,10 +23,9 @@
         android:textColorLink="#FC4659"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.527" />
+        app:layout_constraintVertical_bias="0.513" />
 
     <EditText
         android:id="@+id/etvPassword"
@@ -51,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="75dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="75dp"
         android:backgroundTint="#FC4659"
         android:text="LOGIN"
@@ -124,8 +123,8 @@
 
     <TextView
         android:id="@+id/txtSigninwith"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="47dp"
+        android:layout_height="11dp"
         android:layout_marginBottom="72dp"
         android:text="Sign in with"
         android:textColor="#FC4659"

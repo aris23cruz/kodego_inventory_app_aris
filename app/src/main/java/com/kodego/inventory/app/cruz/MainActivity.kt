@@ -24,11 +24,21 @@ class MainActivity : AppCompatActivity() {
         val correctUserName:String = "admin"
         val correctPassword:String = "admin123"
 
-        if((correctUserName == userName)&&(correctPassword == password)){
-            val intent = Intent(this,HomeActivity::class.java)
+        val correctUserName2:String = "aris"
+        val correctPassword2:String = "pass123"
+        if((correctUserName == userName)&&(correctPassword == password)) {
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.putExtra("nameID", userName)
             startActivity(intent)
-            Toast.makeText(applicationContext,"Logging in....", Toast.LENGTH_SHORT).show()
             finish()
+            Toast.makeText(applicationContext, "Logging in....", Toast.LENGTH_SHORT).show()
+            return true
+        }else if((correctUserName2 == userName)&&(correctPassword2 == password)){
+            val intent = Intent(this,HomeActivity::class.java)
+            intent.putExtra("nameID",userName)
+            startActivity(intent)
+            finish()
+            Toast.makeText(applicationContext,"Logging in....", Toast.LENGTH_SHORT).show()
             return true
         }else{
             Toast.makeText(applicationContext,"Invalid Credentials", Toast.LENGTH_SHORT).show()
