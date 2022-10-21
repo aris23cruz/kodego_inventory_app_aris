@@ -21,10 +21,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun checkCredential(userName:String, password:String): Boolean{
-        val correctUserName:String = "admin"
+        val correctUserName:String = "Admin"
         val correctPassword:String = "admin123"
 
-        val correctUserName2:String = "aris"
+        val correctUserName2:String = "Aris"
         val correctPassword2:String = "pass123"
         if((correctUserName == userName)&&(correctPassword == password)) {
             val intent = Intent(this, HomeActivity::class.java)
