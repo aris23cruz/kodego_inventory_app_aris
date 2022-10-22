@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="130dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -24,8 +24,7 @@
             <TextView
                 android:id="@+id/tvDescription"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="3dp"
+                android:layout_height="wrap_content"
                 android:background="@color/red57"
                 android:ellipsize="end"
                 android:maxLines="2"
@@ -33,7 +32,6 @@
                 android:paddingEnd="10dp"
                 android:text="Description"
                 android:textColor="#212121"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imgProduct"
                 app:layout_constraintTop_toBottomOf="@+id/itemName" />
@@ -56,11 +54,70 @@
                 android:id="@+id/imgProduct"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_marginStart="16dp"
                 android:background="#00FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.118"
                 tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tvInStocks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/red57"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="In Stocks"
+                android:textColor="#212121"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvDescription"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageButton
+                android:id="@+id/btnUpdate"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/red57"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvInStocks"
+                app:layout_constraintTop_toTopOf="@+id/tvInStocks"
+                app:srcCompat="@android:drawable/ic_menu_edit" />
+
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/red57"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnUpdate"
+                app:layout_constraintTop_toTopOf="@+id/btnUpdate"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@android:drawable/ic_menu_delete" />
+
+            <TextView
+                android:id="@+id/tvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/red57"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="Quantity"
+                android:textColor="#212121"
+                app:layout_constraintBottom_toBottomOf="@+id/btnUpdate"
+                app:layout_constraintEnd_toStartOf="@+id/btnUpdate"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imgProduct"
+                app:layout_constraintTop_toBottomOf="@+id/tvInStocks" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
