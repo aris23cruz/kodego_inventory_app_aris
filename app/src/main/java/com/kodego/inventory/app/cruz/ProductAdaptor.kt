@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kodego.inventory.app.cruz.databinding.RowItemBinding
 
 class ProductAdapter(val products:List<Products>):RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+    var onItemClick : ((Products) -> Unit)? = null
     inner class ProductViewHolder(val binding: RowItemBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -19,6 +20,9 @@ class ProductAdapter(val products:List<Products>):RecyclerView.Adapter<ProductAd
             imgProduct.setImageResource(products[position].itemImage)
             itemName.text = products[position].itemName
             tvDescription.text = products[position].itemDescription
+        }
+        holder.itemView.setOnClickListener() {
+           onItemClick?.invoke(products[position])
         }
     }
 

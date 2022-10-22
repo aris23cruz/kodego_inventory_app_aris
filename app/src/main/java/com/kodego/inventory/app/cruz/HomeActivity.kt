@@ -1,7 +1,9 @@
 package com.kodego.inventory.app.cruz
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kodego.inventory.app.cruz.databinding.ActivityHomeBinding
 
@@ -13,32 +15,35 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         var productList = mutableListOf<Products>(
-            Products(R.drawable.ic_baseline_local_car_wash_24, "Car Model", "This is a car"),
-            Products(R.drawable.ic_baseline_local_taxi_24,"Car Model", "This is for transpo"),
-            Products(R.drawable.ic_baseline_local_shipping_24,"Truck Model","This is for cargo"),
-            Products(R.drawable.ic_baseline_local_car_wash_24, "Car Model", "This is a car"),
-            Products(R.drawable.ic_baseline_local_taxi_24,"Car Model", "This is for transpo"),
-            Products(R.drawable.ic_baseline_local_shipping_24,"Truck Model","This is for cargo"),
-            Products(R.drawable.ic_baseline_local_car_wash_24, "Car Model", "This is a car"),
-            Products(R.drawable.ic_baseline_local_taxi_24,"Car Model", "This is for transpo"),
-            Products(R.drawable.ic_baseline_local_shipping_24,"Truck Model","This is for cargo"),
-            Products(R.drawable.ic_baseline_local_car_wash_24, "Car Model", "This is a car"),
-            Products(R.drawable.ic_baseline_local_taxi_24,"Car Model", "This is for transpo"),
-            Products(R.drawable.ic_baseline_local_shipping_24,"Truck Model","This is for cargo"),
-            Products(R.drawable.ic_baseline_local_car_wash_24, "Car Model", "This is a car"),
-            Products(R.drawable.ic_baseline_local_taxi_24,"Car Model", "This is for transpo"),
-            Products(R.drawable.ic_baseline_local_shipping_24,"Truck Model","This is for cargo")
-
+            Products(R.drawable.battery, "Battery", "Gold 12V/2SM/D26/N50/(21mos Warranty) Maintenance Free Car/Automotive Battery"),
+            Products(R.drawable.bearings,"Bearings", "Front Wheel Bearings 2 pieces. Includes: Part Number: 91053-K03-N41 BEARING SIZE 6301-2 pieces. Rear Wheel Bearings 2 pieces. Includes: Part Numbers: 91051-K35-V04-BEARING SIZE 6203-1 piece. 91051-KPS-732-BEARING SIZE 6303-1 pieceBundle Set: No. Compatible Motorcycle Models: Honda XR150L. Compatible Motorcycle Manufacturer: Honda. Honda Genuine Parts."),
+            Products(R.drawable.brakefluid,"Brake Fluid","Brake fluid for motorcycle. DOT 3. High quality. Net content: 150 ml. Superior braking action. Superior safety. Prevents leaks on rubber cup. Prevents rust and corrosion. Prevents moisture build-up. This high-boiling-point brake fluid gives an extra margin of safety. Designed for safe operation of today s modern high-powered vehicles. Excellent for brake and clutch system."),
+            Products(R.drawable.brakepads, "Brake Pads", "Size:190*157*70; Material: semi material ; Purpose: automotive disc brake lining"),
+            Products(R.drawable.fanbelt,"Fan Belt", "Fan Belt 13x785Li Brand New Japan quality assured replacement part"),
+            Products(R.drawable.headlight,"Headlight","BILUX H4 12V 60/55W \n" +
+                    "ORIGINAL SPARE PART\n" +
+                    "P43t\n" +
+                    "64193\n" +
+                    "472 "),
+            Products(R.drawable.motoroil, "Motor Oil", "Fully Synthetic Oil | 4 Liters/5W-30"),
+            Products(R.drawable.oilfilter,"Oil Filter", "Vic Oil Filter C-415 Mitsubishi Lancer, Galant, Mirage, Outlander Grandis, Montero 4N15, Hyundai Eon, Getz, i10, Kia Picanto Vic"),
+            Products(R.drawable.sprockets,"Sprockets","CSL Motor Parts Japan Quality Sprocket for Supremo 428-15T"),
+            Products(R.drawable.tire,"Tires","Continental ExtremeContact DWS06 Plus Tire | 225/45ZR17 91W")
         )
         //pass data source to adapter
         val adapter = ProductAdapter(productList)
-
+        adapter.onItemClick = {
+            val intent = Intent(this, ProductDetailActivity::class.java)
+            intent.putExtra("itemName",it.itemName)
+            intent.putExtra("itemDescription",it.itemDescription)
+            intent.putExtra("itemImage",it.itemImage)
+            startActivity(intent)
+        }
         binding.myRecycler.adapter = adapter
         binding.myRecycler.layoutManager = LinearLayoutManager(this)
 
         //get data from another screen
-        var name:String? = intent.getStringExtra("nameID")
-
+        val name:String? = intent.getStringExtra("nameID")
         binding.tvHomePage.text = "Hello $name!"
     }
 }
